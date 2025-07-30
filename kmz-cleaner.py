@@ -112,13 +112,10 @@ def create_clean_kml(output_kml, doc_name, image_href, coordinates):
 
     <GroundOverlay>
         <name>Map</name>
-        <visibility>1</visibility>
-        <drawOrder>100</drawOrder>
+        <drawOrder>100</drawOrder>  <!-- Forces overlay to stay visible on Android -->
         <Icon>
             <href>{image_href}</href>
         </Icon>
-        <altitude>0</altitude>
-        <altitudeMode>clampToGround</altitudeMode>
         <LatLonBox>
             <north>{north}</north>
             <south>{south}</south>
@@ -126,10 +123,8 @@ def create_clean_kml(output_kml, doc_name, image_href, coordinates):
             <west>{west}</west>
         </LatLonBox>
         <Lod>
-            <minLodPixels>128</minLodPixels>
+            <minLodPixels>64</minLodPixels>
             <maxLodPixels>-1</maxLodPixels>
-            <minFadeExtent>0</minFadeExtent>
-            <maxFadeExtent>0</maxFadeExtent>
         </Lod>
     </GroundOverlay>
 
